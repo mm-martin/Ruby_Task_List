@@ -1,19 +1,19 @@
 <section id="add">
 	<form action="/" method="post">
-		<textarea name="content" placeholder="Your note&hellip;"></textarea>
-		<input type="submit" value="Add a new task...">
+		<textarea name="content" placeholder="Type here to create a new task...&hellip;"></textarea>
+		<input type="submit" value="Create!">
 	</form>
 </section>
 
-<% @notes.each do |note| %>
-	<article <%= 'class="complete"' if note.complete %>>
+<% @tasks.each do |task| %>
+	<article <%= 'class="complete"' if task.complete %>>
 		<p>
-			<%= note.content %>
-			<span><a href="/<%= note.id %>">[edit]</a></span>
+			<%= task.content %>
+			<span><a href="/<%= task.id %>">[edit]</a></span>
 		</p>
 		<p class="links">
-			<a href="/<%= note.id %>/complete">&#8623;</a>
+			<a href="/<%= task.id %>/complete">&#8623;</a>
 		</p>
-		<p class="meta">Created: <%= note.created_at %></p>
+		<p class="meta">Created: <%= task.created_at %></p>
 	</article>
 <% end %>
