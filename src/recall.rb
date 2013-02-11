@@ -2,9 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'time'
 require 'rack-flash'
-require 'sinatra/reloader'
 require 'sinatra/redirect_with_flash'
-require 'builder'
 
 SITE_TITLE = "Recall"
 SITE_DESCRIPTION = "'cause you're too busy to remember"
@@ -36,7 +34,6 @@ end
 #
 
 get '/' do
-	echo "here"
 	@notes = Note.all :order => :id.desc
 	@title = 'All Notes'
 	if @notes.empty?
