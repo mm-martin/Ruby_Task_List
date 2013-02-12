@@ -8,12 +8,10 @@
 <% @tasks.each do |task| %>
 	<article <%= 'class="complete"' if task.complete %>>
 		<p>
-			<%= task.content %>
+			<%= task.summary %>
 			<span><a href="/<%= task.id %>">[edit]</a></span>
 		</p>
-		<p class="links">
-			<a href="/<%= task.id %>/complete">&#8623;</a>
-		</p>
+		<!-- <p class="meta">Status: <%= task.status %></p> !-->
 		<p class="meta">Created: <%= task.created_at %></p>
 	</article>
 <% end %>
