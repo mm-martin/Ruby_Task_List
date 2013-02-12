@@ -22,7 +22,6 @@ class Status
 	property :status, String
 end
 
-
 DataMapper.auto_upgrade!
 
 # status_names = ['To Do', 'In Progress', 'Complete']
@@ -43,7 +42,7 @@ puts "Stats: "+stats.length.to_s()
 
 get '/' do
 	puts "get: #{params}"
-	@tasks = Task.all :order => :id.desc
+	@tasks = Task.all :order => :rank.asc
 	@statuses = Status.all :order => :id.asc
 	@title = 'All Tasks'
 	erb :home
@@ -54,7 +53,13 @@ post '/' do
 	t = Task.new
 	t.summary = params[:summary]
 	t.status = 0
-	t.rank = 0
+	if(Task.count == 0)
+		t.rank = 0
+		puts "Ranking as 0"
+	else
+		t.rank = Task.max(:rank) +1
+		puts "Ranking as "+t.rank.to_s()
+	end
 	t.created_at = Time.now
 	t.updated_at = Time.now
 	t.save
