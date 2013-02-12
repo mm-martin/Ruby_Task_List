@@ -1,8 +1,16 @@
 <% if @task %>
 	<form action="/<%= @task.id %>" method="post" id="edit">
 		<input type="hidden" name="_method" value="put">
-		<textarea name="content"><%= @task.content %></textarea>
-		<input type="checkbox" name="complete" <%= "checked" if @task.complete %>>
+		<textarea name="summary"><%= @task.summary %></textarea>
+		<select name="status">
+			<% @statuses.each do |status| %>
+				<% if status.id == @task.status %>
+					<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+				<% else %>
+					<option value=<%= status.id %>><%= status.status %></option>
+				<% end %>
+			<% end %>
+		</select>
 		<input type="submit">
 	</form>
 	<p><a href="/<%= @task.id %>/delete">Delete</a></p>

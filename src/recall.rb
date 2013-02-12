@@ -9,7 +9,7 @@ class Task
 	include DataMapper::Resource
 	property :id, Serial
 	property :summary, Text, :required => true
-	property :status, String, :required => true
+	property :status, Integer, :required => true
 	property :rank, Integer
 	property :created_at, DateTime
 	property :updated_at, DateTime
@@ -22,14 +22,19 @@ class Status
 	property :status, String
 end
 
-DataMapper.auto_migrate!
 
-status_names = ['To Do', 'In Progress', 'Complete']
-status_names.each do |status_name|
-	puts "adding " + status_name
-	s = Status.new
-	s.status = status_name
-end
+DataMapper.auto_upgrade!
+
+# status_names = ['To Do', 'In Progress', 'Complete']
+# status_names.each do |status_name|
+# 	puts "adding " + status_name
+# 	s = Status.new
+# 	s.status = status_name
+# 	s.save
+# end
+
+stats = Status.all
+puts "Stats: "+stats.length.to_s()
 
 # getBottomRank do
 # 	# to do: sort by rank ascending and return the last value
@@ -37,20 +42,18 @@ end
 # end
 
 get '/' do
-	puts "get"
+	puts "get: #{params}"
 	@tasks = Task.all :order => :id.desc
-	puts "1"
+	@statuses = Status.all :order => :id.asc
 	@title = 'All Tasks'
-	puts "2"
 	erb :home
-	puts "3"
 end
 
 post '/' do
-	puts "post"
+	puts "post: "+params[:summary].to_s()
 	t = Task.new
 	t.summary = params[:summary]
-	t.status = 'To Do'
+	t.status = 0
 	t.rank = 0
 	t.created_at = Time.now
 	t.updated_at = Time.now
@@ -59,8 +62,9 @@ post '/' do
 end
 
 get '/:id' do
-	puts "get id"
+	puts ":id: #{params[:id]}"
 	@task = Task.get params[:id]
+	@statuses = Status.all :order => :id.asc
 	@title = "Edit task ##{params[:id]}"
 	erb :edit
 end

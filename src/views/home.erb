@@ -1,17 +1,16 @@
 <section id="add">
 	<form action="/" method="post">
-		<textarea name="content" placeholder="Type here to create a new task...&hellip;"></textarea>
+		<textarea name="summary" placeholder="Type here to create a new task&hellip;"></textarea>
 		<input type="submit" value="Create!">
 	</form>
 </section>
-
 <% @tasks.each do |task| %>
-	<article <%= 'class="complete"' if task.complete %>>
+	<article>
 		<p>
 			<%= task.summary %>
-			<span><a href="/<%= task.id %>">[edit]</a></span>
+			<span><a href="/<%= task.id %>">[edit]</a></span> 
 		</p>
-		<!-- <p class="meta">Status: <%= task.status %></p> !-->
+		<p class="meta">Status: <%= @statuses[task.status - 1].status %></p>
 		<p class="meta">Created: <%= task.created_at %></p>
 	</article>
 <% end %>
