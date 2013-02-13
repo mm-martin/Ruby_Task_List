@@ -9,8 +9,11 @@
 		<p>
 			<%= task.summary %>
 			<span><a href="/<%= task.id %>">[edit]</a></span> 
+			<span><a href="/up/<%= task.id %>">[up]</a></span> 
+			<span><a href="/down/<%= task.id %>">[down]</a></span> 
 		</p>
 		<p class="meta">Status: <%= @statuses[task.status - 1].status %></p>
 		<p class="meta">Created: <%= task.created_at %></p>
+		<p class="meta">Rank: <%= task.rank %></p>
 	</article>
 <% end %>

@@ -1,18 +1,20 @@
 <% if @task %>
-	<form action="/<%= @task.id %>" method="post" id="edit">
-		<input type="hidden" name="_method" value="put">
-		<textarea name="summary"><%= @task.summary %></textarea>
-		<select name="status">
-			<% @statuses.each do |status| %>
-				<% if status.id == @task.status %>
-					<option selected="selected" value=<%= status.id %>><%= status.status %></option>
-				<% else %>
-					<option value=<%= status.id %>><%= status.status %></option>
+	<div id="container">
+		<form action="/<%= @task.id %>" method="post" id="edit" class="navbar-form pull-left">
+			<input type="hidden" name="_method" value="put">
+			<textarea name="summary"><%= @task.summary %></textarea>
+			<select name="status">
+				<% @statuses.each do |status| %>
+					<% if status.id == @task.status %>
+						<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+					<% else %>
+						<option value=<%= status.id %>><%= status.status %></option>
+					<% end %>
 				<% end %>
-			<% end %>
-		</select>
-		<input type="submit">
-	</form>
+			</select>
+			 <button type="submit" class="btn">Submit</button>
+		</form>
+	</div>
 	<p><a href="/<%= @task.id %>/delete">Delete</a></p>
 <% else %>
 	<p>Task not found.</p>
