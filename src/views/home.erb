@@ -1,19 +1,46 @@
-<section id="add">
-	<form action="/" method="post">
-		<textarea name="summary" placeholder="Type here to create a new task&hellip;"></textarea>
-		<input type="submit" value="Create!">
-	</form>
-</section>
-<% @tasks.each do |task| %>
-	<article>
-		<p>
-			<%= task.summary %>
-			<span><a href="/<%= task.id %>">[edit]</a></span> 
-			<span><a href="/up/<%= task.id %>">[up]</a></span> 
-			<span><a href="/down/<%= task.id %>">[down]</a></span> 
-		</p>
-		<p class="meta">Status: <%= @statuses[task.status - 1].status %></p>
-		<p class="meta">Created: <%= task.created_at %></p>
-		<p class="meta">Rank: <%= task.rank %></p>
-	</article>
-<% end %>
+<div class="row-fluid">
+	<div class="span3">
+		<section id="add">
+			<form action="/" method="post">
+				<fieldset>
+					<textarea rows="3" name="summary" placeholder="Create a new task&hellip;"></textarea>
+					<button type="submit" class="btn">Create</button>
+				</fieldset>	
+			</form>
+		</section>
+	</div>
+	<div class="span9">
+		<section id="tasks">
+			<div class="page-header">
+					<h3><a href="/">Tasks</a></h3>
+			</div>
+			<% @tasks.each do |task| %>
+				<div class="well">
+					<div class="row">
+						<div class="span6">
+							<p>
+								<%= task.summary %>
+							</p>
+						</div>
+						<div class="span3">
+							<p>
+								<span><a href="/<%= task.id %>">[edit]</a></span> 
+								<span><a href="/up/<%= task.id %>">[up]</a></span> 
+								<span><a href="/down/<%= task.id %>">[down]</a></span> 
+							</p>
+						</div>	
+					</div>	
+					<div class="row">
+						<p class="meta">Status: <%= @statuses[task.status - 1].status %></p>
+					</div>	
+					<div class="row">
+						<p class="meta">Created: <%= task.created_at %></p>
+					</div>			
+					<div class="row">			
+						<p class="meta">Rank: <%= task.rank %></p>
+					</div>			
+				</div>
+			<% end %>
+		</section>	
+	</div>
+</div>

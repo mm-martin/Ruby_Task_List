@@ -41,7 +41,7 @@ DataMapper.auto_migrate!
 summaries.each_with_index do |summary, index|
 	t = Task.create(
 		:summary => summary,
-		:status => 0,
+		:status => 1,
 		:rank => index,
 		:created_at => Time.now,
 		:updated_at => Time.now)
@@ -52,6 +52,8 @@ end
 status_names.each do |status_name|
 	s = Status.new
 	s.status = status_name
-	puts s.to_s()
+	puts s.id.to_s()
+	puts status_name
 	s.save
+	puts s.id.to_s()
 end
