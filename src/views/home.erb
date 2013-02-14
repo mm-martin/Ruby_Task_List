@@ -1,5 +1,6 @@
 <div class="row-fluid">
 	<div class="span3">
+		<br>
 		<section id="add">
 			<form action="/" method="post">
 				<fieldset>
@@ -14,30 +15,35 @@
 			<div class="page-header">
 					<h3><a href="/">Tasks</a></h3>
 			</div>
-			<% @tasks.each do |task| %>
+			<% @tasks.each do |task|%> 
 				<div class="well">
 					<div class="row">
 						<div class="span6">
-							<p>
+							<p><strong>
 								<%= task.summary %>
-							</p>
+							</p></strong>
 						</div>
 						<div class="span3">
 							<p>
-								<span><a href="/<%= task.id %>">[edit]</a></span> 
-								<span><a href="/up/<%= task.id %>">[up]</a></span> 
-								<span><a href="/down/<%= task.id %>">[down]</a></span> 
+								<!-- <span><a href="/<%= task.id %>">[edit]</a></span>  -->
+								<span><a class="btn" href="/up/<%= task.id %>">up</a></span> 
+								<span><a class="btn" href="/down/<%= task.id %>">down</a></span> 
 							</p>
 						</div>	
-					</div>	
+					</div>
+					<div class="row">	
+						<select name="status">
+							<% @statuses.each do |status| %>
+								<% if status.id == task.status %>
+									<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+								<% else %>
+									<option value=<%= status.id %>><%= status.status %></option>
+								<% end %>
+							<% end %>
+						</select>
+					</div>
 					<div class="row">
-						<p class="meta">Status: <%= @statuses[task.status - 1].status %></p>
-					</div>	
-					<div class="row">
-						<p class="meta">Created: <%= task.created_at %></p>
-					</div>			
-					<div class="row">			
-						<p class="meta">Rank: <%= task.rank %></p>
+						<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
 					</div>			
 				</div>
 			<% end %>

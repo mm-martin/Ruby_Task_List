@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'data_mapper'
+require 'time'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/recall.db")
 
@@ -36,14 +37,6 @@ def bump_rank(direction, movetask)
 	end
 end
 
-# status_names = ['To Do', 'In Progress', 'Complete']
-# status_names.each do |status_name|
-# 	puts "adding " + status_name
-# 	s = Status.new
-# 	s.status = status_name
-# 	s.save
-# end
-
 stats = Status.all
 puts "Stats: "+stats.length.to_s()
 
@@ -53,6 +46,7 @@ get '/' do
 	@tasks = Task.all :order => :rank.asc
 	@statuses = Status.all :order => :id.asc
 	@title = 'All Tasks'
+	@createdates = Array.new()
 	erb :home
 end
 
