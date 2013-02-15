@@ -1,0 +1,49 @@
+      <div class="row-fluid">
+        <div class="span3">
+        <br>
+          <div class="well sidebar">
+			<section id="add">
+				<form action="/" method="post">
+					<fieldset>
+						<textarea rows="3" name="summary" placeholder="Create a new task&hellip;"></textarea>
+						<button type="submit" class="btn">Create</button>
+					</fieldset>	
+				</form>
+			</section>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="page-header">
+            <h1>Your Tasks<small> sorted by priority</small></h1>
+          </div>
+			<% @tasks.each do |task|%>
+				<div class="well">
+					<div>
+						<p><strong>
+								<%= task.summary %>
+							</strong>
+						</p>
+						<a class="btn" href="/up/<%= task.id %>">up</a>
+						<a class="btn" href="/down/<%= task.id %>">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">-->
+							<% @statuses.each do |status| %>
+							<% if status.id == task.status %>
+								<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+							<% else %>
+								<option value=<%= status.id %>><%= status.status %></option>
+							<% end %>
+						<% end %>
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
+				</div>			
+			</div>
+			<% end %>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>

@@ -1,5 +1,5 @@
 <div class="row-fluid">
-	<div class="span3">
+	<div>
 		<br>
 		<section id="add">
 			<form action="/" method="post">
@@ -10,28 +10,27 @@
 			</form>
 		</section>
 	</div>
-	<div class="span9">
+	<div>
 		<section id="tasks">
-			<div class="page-header">
+			<div>
 					<h3><a href="/">Tasks</a></h3>
 			</div>
 			<% @tasks.each do |task|%> 
 				<div class="well">
-					<div class="row">
-						<div class="span6">
+						<div>
 							<p><strong>
 								<%= task.summary %>
 							</p></strong>
 						</div>
-						<div class="span3">
+						<div>
 							<p>
 								<!-- <span><a href="/<%= task.id %>">[edit]</a></span>  -->
 								<span><a class="btn" href="/up/<%= task.id %>">up</a></span> 
 								<span><a class="btn" href="/down/<%= task.id %>">down</a></span> 
 							</p>
 						</div>	
-					</div>
-					<div class="row">	
+					<br>
+					<div>	
 						<select name="status">
 							<% @statuses.each do |status| %>
 								<% if status.id == task.status %>
@@ -42,7 +41,7 @@
 							<% end %>
 						</select>
 					</div>
-					<div class="row">
+					<div>
 						<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
 					</div>			
 				</div>

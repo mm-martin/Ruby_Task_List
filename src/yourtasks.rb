@@ -28,12 +28,12 @@ DataMapper.auto_upgrade!
 UP = -1
 DOWN = 1
 
-def bump_rank(direction, movetask)
-	swaptask = Task.first(:rank => (movetask.rank + direction)) #direction decides whether to swap with the task ranked immediately below or above.
-	if swaptask != nil && (movetask.rank != 0 || movetask.rank != Task.max(:rank)) # if our task isn't already ranked highest or lowest.
-		movetask.rank, swaptask.rank = swaptask.rank, movetask.rank #parallell assignment, values swap. How cool is that!
-		movetask.save
-		swaptask.save
+def bump_rank(direction, shifttask)
+	neighbour = Task.first(:rank => (shifttask.rank + direction)) #direction decides whether to swap with the task ranked immediately below or above.
+	if neighbour != nil && (shifttask.rank != 0 || shifttask.rank != Task.max(:rank)) # if our task isn't already ranked highest or lowest.
+		shifttask.rank, neighbour.rank = neighbour.rank, shifttask.rank #parallel assignment, values swap. How cool is that!
+		shifttask.save
+		neighbour.save
 	end
 end
 
@@ -47,7 +47,7 @@ get '/' do
 	@statuses = Status.all :order => :id.asc
 	@title = 'All Tasks'
 	@createdates = Array.new()
-	erb :home
+	erb :newhome
 end
 
 post '/' do
