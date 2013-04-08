@@ -17,31 +17,30 @@
             <h1>Your Tasks<small> sorted by priority</small></h1>
           </div>
 			<% @tasks.each do |task|%>	
-				<br>
-				<div class="well">
+				<!-- <br> -->
+				<div id="<%= task.id %>" class="well">
 					<div>
 						<p><strong>
-							<a name="<%= task.id %>"><%= task.summary %></a>
+							<%= task.summary %>
 							</strong>
 						</p>
-						<a class="btn" href="/up/<%= task.id %>">up</a>
-						<a class="btn" href="/down/<%= task.id %>">down</a>
-					</div>	
-					<br>
-					<div>	
-						<select name="status">-->
-								<% @statuses.each do |status| %>
-								<% if status.id == task.status %>
-									<option selected="selected" value=<%= status.id %>><%= status.status %></option>
-								<% else %>
-									<option value=<%= status.id %>><%= status.status %></option>
-								<% end %>
-							<% end %>
-						</select>
-					</div>
-					<div>
+						<div class="form-horizontal">
+							<p>
+								<a class="btn" href="/up/<%= task.id %>">up</a>
+								<a class="btn" href="/down/<%= task.id %>">down</a>			
+								<select name="status">
+										<% @statuses.each do |status| %>
+										<% if status.id == task.status %>
+											<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+										<% else %>
+											<option value=<%= status.id %>><%= status.status %></option>
+										<% end %>
+									<% end %>
+								</select>
+							</p>
+						</div>
 						<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
-					</div>			
+					</div>	
 				</div>
 			<% end %>
         </div><!--/span-->
