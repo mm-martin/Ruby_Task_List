@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:4567/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Bootstrap, from Twitter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Task Tracker Prototype">
+		<meta name="author" content="Martin Lynagh">
+		<title>Task Tracker Prototype</title>
+		<link href="http://localhost:4567/assets/css/bootstrap.css" rel="stylesheet">
+		<!-- Le styles -->
+		<style type="text/css">
+		    body {
+					padding-top: 60px;
+					padding-bottom: 40px;
+			}
+				.sidebar-nav {
+        						padding: 9px 0;
+      			}
+
+			@media (max-width: 980px) {
+	        /* Enable use of floated navbar text */
+				.navbar-text.pull-right {
+				float: none;
+				padding-left: 5px;
+				padding-right: 5px;
+				}
+      		}
+    	</style>
+    	<link href="http://localhost:4567/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	    <!--[if lt IE 9]>
+	      <script src="../assets/js/html5shiv.js"></script>
+	    <![endif]-->
+
+	    <!-- Fav and touch icons -->
+	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4567/assets/ico/apple-touch-icon-144-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4567/assets/ico/apple-touch-icon-114-precomposed.png">
+	      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4567/assets/ico/apple-touch-icon-72-precomposed.png">
+	                    <link rel="apple-touch-icon-precomposed" href="http://localhost:4567/assets/ico/apple-touch-icon-57-precomposed.png">
+	                                   <link rel="shortcut icon" href="http://localhost:4567/assets/ico/favicon.png">    	
+	</head>
+	<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="http://localhost:4567/#">MM Work</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="http://localhost:4567/#" class="navbar-link">mmmartin</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="http://localhost:4567/#">Home</a></li>
+              <li><a href="http://localhost:4567/#about">About</a></li>
+              <li><a href="http://localhost:4567/#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid">
+		      <div class="row-fluid">
+        <div class="span3">
+        <br>
+          <div class="well sidebar">
+			<section id="add">
+				<form action="./Bootstrap, from Twitter_files/Bootstrap, from Twitter.htm" method="post">
+					<fieldset>
+						<textarea rows="3" name="summary" placeholder="Create a new task…"></textarea>
+						<button type="submit" class="btn">Create</button>
+					</fieldset>	
+				</form>
+			</section>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="page-header">
+            <h1>Your Tasks<small> sorted by priority</small></h1>
+          </div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Add sub projects through the admin interface.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/2">up</a>
+						<a class="btn" href="http://localhost:4567/down/2">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Select a different Project from a drop down when giving feedback.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/3">up</a>
+						<a class="btn" href="http://localhost:4567/down/3">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Add new projects through the admin interface.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/1">up</a>
+						<a class="btn" href="http://localhost:4567/down/1">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Select a different sub project from a drop down when giving feedback on a project.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/4">up</a>
+						<a class="btn" href="http://localhost:4567/down/4">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Click on help link to view annotated screens explaining the interface
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/5">up</a>
+						<a class="btn" href="http://localhost:4567/down/5">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Restrict export option to admin and production?
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/6">up</a>
+						<a class="btn" href="http://localhost:4567/down/6">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Delete an image after it's been attached it to an entry.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/7">up</a>
+						<a class="btn" href="http://localhost:4567/down/7">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Delete an entry after it's been submitted.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/8">up</a>
+						<a class="btn" href="http://localhost:4567/down/8">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Automagically detect what build you are playing when giving feedback
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/9">up</a>
+						<a class="btn" href="http://localhost:4567/down/9">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								What would you do If I sang out of key? 
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/13">up</a>
+						<a class="btn" href="http://localhost:4567/down/13">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-15 14:21</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Integrate with a system that helps people manage and rank their tasks.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/11">up</a>
+						<a class="btn" href="http://localhost:4567/down/11">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Capture and attach a screenshot of what's on your screen in real time.
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/10">up</a>
+						<a class="btn" href="http://localhost:4567/down/10">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option selected="selected" value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-02-13 16:45</p>
+				</div>			
+			</div>
+			
+				<div class="well">
+					<div>
+						<p><strong>
+								Do some shizness!
+							</strong>
+						</p>
+						<a class="btn" href="http://localhost:4567/up/14">up</a>
+						<a class="btn" href="http://localhost:4567/down/14">down</a>
+					</div>	
+				<br>
+				<div>	
+					<select name="status">--&gt;
+							
+							
+								<option value="1">To Do</option>
+							
+						
+							
+								<option value="2">In Progress</option>
+							
+						
+							
+								<option value="3">Complete</option>
+							
+						
+					</select>
+				</div>
+				<div>
+					<p class="meta">Created At: 2013-03-04 12:15</p>
+				</div>			
+			</div>
+			
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+		<footer class="footer">
+			<p><small>Prototype Task Tracker.</small></p>
+		</footer>
+
+    </div><!--/.fluid-container-->	
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Bootstrap, from Twitter_files/jquery.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-transition.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-alert.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-modal.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-dropdown.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-scrollspy.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-tab.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-tooltip.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-popover.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-button.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-collapse.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-carousel.js"></script>
+    <script src="./Bootstrap, from Twitter_files/bootstrap-typeahead.js"></script>
+
+
+
+</body></html>

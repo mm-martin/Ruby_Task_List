@@ -43,6 +43,7 @@ puts "Stats: "+stats.length.to_s()
 
 get '/' do
 	puts "get: #{params}"
+	puts "HEY - OVER HERE!"
 	@tasks = Task.all :order => :rank.asc
 	@statuses = Status.all :order => :id.asc
 	@title = 'All Tasks'
@@ -112,24 +113,16 @@ get '/up/:id' do
 	puts 'Up!'
 	t = Task.get params[:id]
 	bump_rank(UP, t)
-	# change_rank(UP, Task.get params[:id])
-	# downtask = Task.first(:rank => (uptask.rank - 1))
-	# if uptask.rank != 0 && downtask != nil #if our task isn't already ranked highest
-	# 	uptask.rank = uptask.rank - 1
-	# 	downtask.rank = downtask.rank + 1
-	# 	uptask.save
-	# 	downtask.save
-	# end
-	redirect '/'
+	puts 'redirect: /#'+t.id.to_s
+	redirect '/#'+t.id.to_s
 end
 
 get '/down/:id' do
 	puts 'Down!'
 	t = Task.get params[:id]
 	bump_rank(DOWN, t)
-	# downtask = Task.get params[:id]
-	# uptask = task.first(:rank => (uptask.rank + 1))
-	redirect '/'
+	puts 'redirect: /#'+t.id.to_s
+	redirect '/#'+t.id.to_s
 end
 
 

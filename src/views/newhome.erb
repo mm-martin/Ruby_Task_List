@@ -16,32 +16,33 @@
           <div class="page-header">
             <h1>Your Tasks<small> sorted by priority</small></h1>
           </div>
-			<% @tasks.each do |task|%>
+			<% @tasks.each do |task|%>	
+				<br>
 				<div class="well">
 					<div>
 						<p><strong>
-								<%= task.summary %>
+							<a name="<%= task.id %>"><%= task.summary %></a>
 							</strong>
 						</p>
 						<a class="btn" href="/up/<%= task.id %>">up</a>
 						<a class="btn" href="/down/<%= task.id %>">down</a>
 					</div>	
-				<br>
-				<div>	
-					<select name="status">-->
-							<% @statuses.each do |status| %>
-							<% if status.id == task.status %>
-								<option selected="selected" value=<%= status.id %>><%= status.status %></option>
-							<% else %>
-								<option value=<%= status.id %>><%= status.status %></option>
+					<br>
+					<div>	
+						<select name="status">-->
+								<% @statuses.each do |status| %>
+								<% if status.id == task.status %>
+									<option selected="selected" value=<%= status.id %>><%= status.status %></option>
+								<% else %>
+									<option value=<%= status.id %>><%= status.status %></option>
+								<% end %>
 							<% end %>
-						<% end %>
-					</select>
+						</select>
+					</div>
+					<div>
+						<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
+					</div>			
 				</div>
-				<div>
-					<p class="meta">Created At: <%= task.created_at.strftime(fmt='%F %R') %></p>
-				</div>			
-			</div>
 			<% end %>
         </div><!--/span-->
       </div><!--/row-->
